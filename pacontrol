@@ -10,9 +10,9 @@ function customizeOutput {
 
 	case "$2" in
 		*)
-			icon_muted=""
-			icon_unmuted=""
-			;;
+		icon_muted=""
+		icon_unmuted=""
+		;;
 	esac
 }
 
@@ -59,18 +59,18 @@ EOD
 function listen {
 	# once we get here, the sink definetely exists, so we can output its
 	# status and wait for changes
-	
+
 	output
 
 	# i would actually just grep for "sink #$sink_number" here, but whenever a sink is 
 	# disabled/disconnected and enabled again, it gets a new index. However, pactl
 	# is still grepping for the old $sink_number so we have check for that IN the while loop
-	
+
 	pactl subscribe | grep --line-buffered 'sink #\|card' | while read -r event; do
 		if [[ $event =~ "sink #$sink_number" ]]
 		then 
 			output
-			
+
 		else 
 			if [[ $event =~ "card #$card_number" ]]
 			then
@@ -101,15 +101,15 @@ case "$1" in
         ;;
         
     --listen)
-		customizeOutput
-		
-		while [[ $(getIndex) == "" ]]
-		do
-			waitForSinkConnect
-		done
-		sink_number=$(getIndex)
-		
-		listen
+	customizeOutput
+
+	while [[ $(getIndex) == "" ]]
+	do
+		waitForSinkConnect
+	done
+	sink_number=$(getIndex)
+
+	listen
         ;;
         
     *)
