@@ -5,7 +5,7 @@
     <br/>
 </p>
 
-Since [marioortizmanero](https://github.com/marioortizmanero)'s [PulseAudio Control](https://github.com/marioortizmanero/polybar-pulseaudio-control) is causing a high load when in use with multiple sinks, ive written this lightweight version of it. The original would spike up to 100% cpu when used with 4 sinks (Ryzen 5 5600x) and this script uses about 10% at max.
+Since [PulseAudio Control](https://github.com/marioortizmanero/polybar-pulseaudio-control) is causing a high load when in use with multiple sinks, ive written this lightweight version of it. The original would spike up to 100% cpu when used with 4 sinks (Ryzen 5 5600x) and this script uses about 10% at max.
 
 # Significant Changes
 
